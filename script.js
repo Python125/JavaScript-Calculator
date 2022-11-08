@@ -10,11 +10,7 @@ class Calculator {
       this.previousNumber = ''
       this.operation = undefined
     }
-  
-    delete() {
-      this.currentNumber = this.currentNumber.toString().slice(0, -1)
-    }
-  
+
     appendNumber(number) {
       if (number === '.' && this.currentNumber.includes('.')) return
       this.currentNumber = this.currentNumber.toString() + number.toString()
@@ -89,7 +85,7 @@ class Calculator {
   const numberButtons = document.querySelectorAll('[data-number]')
   const operationButtons = document.querySelectorAll('[data-operation]')
   const equalsButton = document.querySelector('[data-equals]')
-  const deleteButton = document.querySelector('[data-delete]')
+  const percentButton = document.querySelector('[data-percentage]')
   const allClearButton = document.querySelector('[data-all-clear]')
   const previousNumberTextElement = document.querySelector('[data-previous-number]')
   const currentNumberTextElement = document.querySelector('[data-current-number]')
@@ -120,7 +116,7 @@ class Calculator {
     calculator.updateDisplay()
   })
   
-  deleteButton.addEventListener('click', button => {
-    calculator.delete()
+  percentButton.addEventListener('click', button => {
+    calculator.percent()
     calculator.updateDisplay()
   })
